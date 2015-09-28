@@ -1,0 +1,20 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<script>
+	$("#resultados").addClass("active");
+</script>
+
+<div class="page-header">
+  <h2>Resultados</h2>
+</div>
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<%= pie_chart @votos %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-1 col-md-offset-11">
+		<%= link_to 'Reset', reset_path, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+	</div>
+</div>

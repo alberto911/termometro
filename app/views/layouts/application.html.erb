@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Termometro</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<% if notice %>
+		<p class="alert alert-success"><span class="close" data-dismiss="alert">&times;</span><%= notice %></p>
+	<% end %>
+	<% if alert %>
+		<p class="alert alert-danger"><span class="close" data-dismiss="alert">&times;</span><%= alert %></p>
+	<% end %>
+
+	<ul class="nav nav-tabs">
+    <li role="presentation" id="votar"><%= link_to 'Votar', root_path %></li>
+		<% if session[:user_id] %>
+    	<li role="presentation" id="resultados"><%= link_to 'Resultados', resultados_path, method: :get %></li>
+			<li role="presentation" id="logout"><%= link_to 'Logout', logout_path, method: :get %></li>
+		<% else %>
+			<li role="presentation" id="login"><%= link_to 'Login', login_path %></li>
+		<% end %>
+  </ul>
+
+  <div class="container">
+		<%= yield %>
+	</div>
+</body>
+</html>

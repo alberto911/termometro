@@ -1,0 +1,29 @@
+<script>
+	$("#login").addClass("active");
+</script>
+
+<div class="row"><br><br><br></div>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Inicia sesión</h3>
+			</div>
+			<div class="panel-body">
+				<%= form_tag('/sesion', method: 'get', class: 'form-horizontal') do %>
+					<div class="input-group input-group-lg">
+						<span class="input-group-addon" id="sizing-addon1">@</span>
+						<input type="text" name="username" class="form-control" placeholder="Usuario" aria-describedby="sizing-addon1">
+					</div><br>
+
+					<div class="input-group input-group-lg">
+						<span class="input-group-addon" id="sizing-addon2">@</span>
+						<input type="password" name="password" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon2">
+					</div><br>
+										
+					<%= submit_tag('Login', class: 'btn btn-success btn-lg btn-block') %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+<div>

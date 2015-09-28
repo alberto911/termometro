@@ -1,0 +1,29 @@
+<script>
+	$("#votar").addClass("active");
+</script>
+
+<div class="page-header">
+  <h2>Termómetro <small>Elige tu estado de ánimo</small></h2>
+</div>
+
+<%= form_tag('/votar', method: 'get', class: 'form-horizontal') do %>
+	<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+  	<%= collection_radio_buttons(:estado, :estado_id, Estado.all, :id, :nombre) do |b| %>
+			<div class="col-md-3">
+				<label class="radio text-center">
+					<%= image_tag(b.text.downcase + ".png") %>
+					<h4>
+						<%= b.radio_button %>
+			    	<%= b.text %>
+					</h4>
+					<br>
+				</label>
+			</div>
+		<% end %>
+		<div class="col-md-6 col-md-offset-3">
+			<%= submit_tag('Votar', class: 'btn btn-primary btn-lg btn-block') %>
+		</div>
+	</div>
+	</div>
+<% end %>
